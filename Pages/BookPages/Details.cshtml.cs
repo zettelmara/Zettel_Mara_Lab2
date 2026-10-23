@@ -17,24 +17,23 @@ public class DetailsModel : PageModel
 
     public async Task<IActionResult> OnGetAsync(int? id)
     {
-        if (id is null)
+        if (id == null)
         {
             return NotFound();
         }
 
         var book = await _context.Book
-    .Include(b => b.Publisher)
-    .Include(b => b.Authors)
-    .FirstOrDefaultAsync(m => m.ID == id);
-        if (book is null)
+            .Include(b => b.Publisher)
+            .Include(b => b.Authors)
+            .Include(b => b.BookCategories).ThenInclude(bc => bc.Category)
+            .FirstOrDefaultAsync(m => m.ID == id);
+
+        if (book == null)
         {
             return NotFound();
         }
-        else
-        {
-            Book = book;
-        }
 
+        Book = book;
         return Page();
     }
 }

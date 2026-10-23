@@ -19,6 +19,8 @@ namespace Zettel_Mara_Lab2.Models
         public int? PublisherID { get; set; }
         public Publisher? Publisher { get; set; } //navigation property
 
+        public ICollection<BookCategory>? BookCategories { get; set; }
+
         public int? AuthorsID { get; set; }
         public Authors? Authors { get; set; } //navigation property
     }
