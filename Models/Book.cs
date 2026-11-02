@@ -23,6 +23,8 @@ namespace Zettel_Mara_Lab2.Models
 
         public int? AuthorsID { get; set; }
         public Authors? Authors { get; set; } //navigation property
+
+        public ICollection<Borrowing>? Borrowings { get; set; }
     }
 }
 

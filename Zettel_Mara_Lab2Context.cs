@@ -6,4 +6,6 @@ public class Zettel_Mara_Lab2Context(DbContextOptions<Zettel_Mara_Lab2Context> o
     public DbSet<Zettel_Mara_Lab2.Models.Publisher> Publisher { get; set; } = default!;
     public DbSet<Zettel_Mara_Lab2.Models.Authors> Authors { get; set; } = default!;
     public DbSet<Zettel_Mara_Lab2.Models.Category> Category { get; set; } = default!;
+    public DbSet<Zettel_Mara_Lab2.Models.Member> Member { get; set; } = default!;
+    public DbSet<Zettel_Mara_Lab2.Models.Borrowing> Borrowing { get; set; } = default!;
 }
