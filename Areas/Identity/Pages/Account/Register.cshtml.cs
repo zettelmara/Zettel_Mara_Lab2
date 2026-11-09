@@ -103,6 +103,7 @@ public class RegisterModel : PageModel
                 _context.Member.Add(member);
                 await _context.SaveChangesAsync();
 
+                var role = await _userManager.AddToRoleAsync(user, "User");
                 var userId = await _userManager.GetUserIdAsync(user);
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
